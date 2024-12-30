@@ -20,7 +20,7 @@ class AuthController extends ApiController
             return $this->sendResponse(['token' => $token, 'user' => $user]);
         }
 
-        return $this->sendError('Unauthorized.', ['error' => 'Unauthorized']);
+        return $this->sendError('Unauthorized.', ['error' => 'User not found']);
     }
 
     public function register(Request $request)

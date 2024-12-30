@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('number');
             $table->bigInteger('est_time_mins');
-            $table->enum('status', ['Pending', 'Served', 'Done', 'Canceled']);
+            $table->enum('status', ['Pending', 'Served', 'Done', 'Canceled'])->default('Pending');
             $table->timestamps();
         });
     }
