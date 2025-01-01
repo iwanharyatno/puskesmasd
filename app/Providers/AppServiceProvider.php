@@ -34,5 +34,9 @@ class AppServiceProvider extends ServiceProvider
         Gate::policy(Service::class, ServicePolicy::class);
         Gate::policy(User::class, PatientPolicy::class);
         Gate::policy(Queue::class, QueuePolicy::class);
+
+        Gate::define('viewApiDocs', function (User $user) {
+            return true;
+        });
     }
 }
