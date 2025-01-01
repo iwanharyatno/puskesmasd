@@ -2,7 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\Queue;
 use App\Models\Service;
+use App\Models\User;
+use App\Policies\PatientPolicy;
+use App\Policies\QueuePolicy;
 use App\Policies\ServicePolicy;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\URL;
@@ -28,5 +32,7 @@ class AppServiceProvider extends ServiceProvider
         }
 
         Gate::policy(Service::class, ServicePolicy::class);
+        Gate::policy(User::class, PatientPolicy::class);
+        Gate::policy(Queue::class, QueuePolicy::class);
     }
 }
